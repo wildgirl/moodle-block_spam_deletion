@@ -29,4 +29,30 @@ if ($ADMIN->fulltree) {
                                                     get_string('badwordslist','block_spam_deletion'),
                                                     get_string('badwordslistdesc', 'block_spam_deletion'),
                                                     get_string('badwords', 'block_spam_deletion')));
+
+    $settings->add(new admin_setting_configtext('block_spam_deletion_throttle_postcount',
+                                                get_string('postthrottlecount','block_spam_deletion'),
+                                                get_string('postthrottlecountdesc','block_spam_deletion'),
+                                                2,
+                                                PARAM_INT));
+
+    $settings->add(new admin_setting_configduration('block_spam_deletion_throttle_duration',
+                                                    get_string('postthrottleduration','block_spam_deletion'),
+                                                    get_string('postthrottledurationdesc','block_spam_deletion'),
+                                                    60*60*4));
+
+    $settings->add(new admin_setting_configtext('block_spam_deletion_akismet_key',
+                                                get_string('akismetkey','block_spam_deletion'),
+                                                '', ''));
+
+    $settings->add(new admin_setting_configduration('block_spam_deletion_akismet_account_age',
+                                                get_string('akismetaccountage','block_spam_deletion'),
+                                                get_string('akismetaccountagedesc','block_spam_deletion'),
+                                                WEEKSECS));
+
+    $settings->add(new admin_setting_configtext('block_spam_deletion_invalidchars_percentage',
+                                                get_string('invalidcharspercentage','block_spam_deletion'),
+                                                get_string('invalidcharspercentagedesc','block_spam_deletion'),
+                                                50,
+                                                PARAM_INT));
 }
